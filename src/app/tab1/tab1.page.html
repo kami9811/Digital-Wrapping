@@ -1,17 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar color="main">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-align-items-end">
+        <ion-col size="5"></ion-col>
+        <ion-col size="2" class="ion-align-self-center">
+            <ion-img src="../../assets/icon/icon_desu_trans.png" alt="icon"></ion-img>
+        </ion-col>
+        <ion-col size="5"></ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>

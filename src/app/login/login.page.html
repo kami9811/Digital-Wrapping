@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="main">
+    <ion-title>ログインページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="../../assets/logo_desu.png"></ion-img>
+  <div>
+    <form class="ion-padding" (submit)="login()">
+      <ion-item lines="full" class="ion-padding-bottom">
+        <ion-label position="floating">ID</ion-label>
+        <ion-input type="text" [(ngModel)]="id" name="id"></ion-input>
+        <ion-label position="floating">パスワード</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        <ion-button type="submit" expand="block" color="main">ログイン</ion-button>
+      </ion-item>
+    </form>
+    <div class="button-area">
+      <ion-button (click)="navigateToSignup()" expand="block" fill="outline" color="main">新規登録する際はこちら</ion-button>
+    </div>
+  </div>
+</ion-content>

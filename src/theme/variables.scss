@@ -3,6 +3,30 @@
 
 /** Ionic CSS Variables **/
 :root {
+  /** main(pink) **/
+  --ion-color-main: #F7C9DD;
+  --ion-color-main-rgb: 247,201,221;
+  --ion-color-main-contrast: #000000;
+  --ion-color-main-contrast-rgb: 0,0,0;
+  --ion-color-main-shade: #d9b1c2;
+  --ion-color-main-tint: #f8cee0;
+
+  /** orange **/
+  --ion-color-orange: #F6AC19;
+  --ion-color-orange-rgb: 246,172,25;
+  --ion-color-orange-contrast: #000000;
+  --ion-color-orange-contrast-rgb: 0,0,0;
+  --ion-color-orange-shade: #d89716;
+  --ion-color-orange-tint: #f7b430;
+
+  /** yellow **/
+  --ion-color-yellow: #FFF576;
+  --ion-color-yellow-rgb: 255,245,118;
+  --ion-color-yellow-contrast: #000000;
+  --ion-color-yellow-contrast-rgb: 0,0,0;
+  --ion-color-yellow-shade: #e0d868;
+  --ion-color-yellow-tint: #fff684;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -229,4 +253,33 @@
 
     --ion-card-background: #1e1e1e;
   }
+}
+
+/** colors **/
+// main(pink)
+.ion-color-main {
+  --ion-color-base: var(--ion-color-main);
+  --ion-color-base-rgb: var(--ion-color-main-rgb);
+  --ion-color-contrast: var(--ion-color-main-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-main-contrast-rgb);
+  --ion-color-shade: var(--ion-color-main-shade);
+  --ion-color-tint: var(--ion-color-main-tint);
+}
+// orange
+.ion-color-orange {
+  --ion-color-base: var(--ion-color-orange);
+  --ion-color-base-rgb: var(--ion-color-orange-rgb);
+  --ion-color-contrast: var(--ion-color-orange-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-orange-contrast-rgb);
+  --ion-color-shade: var(--ion-color-orange-shade);
+  --ion-color-tint: var(--ion-color-orange-tint);
+}
+// yellow
+.ion-color-yellow {
+  --ion-color-base: var(--ion-color-yellow);
+  --ion-color-base-rgb: var(--ion-color-yellow-rgb);
+  --ion-color-contrast: var(--ion-color-yellow-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-yellow-contrast-rgb);
+  --ion-color-shade: var(--ion-color-yellow-shade);
+  --ion-color-tint: var(--ion-color-yellow-tint);
 }
