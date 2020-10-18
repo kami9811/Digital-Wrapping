@@ -13,5 +13,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-card *ngFor="let a of returnObj['map_list']" button="true">
+    <ion-card-header routerLink="/game/{{a.map_name}}/{{a.map_number}}">
+      <ion-card-title>{{a.map_name}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

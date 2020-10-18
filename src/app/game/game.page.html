@@ -3,10 +3,72 @@
     <ion-buttons slot="start">
       <ion-back-button id="back"></ion-back-button>
     </ion-buttons>
-    <ion-title>game</ion-title>
+    <ion-title>
+      {{map_name}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <table>
+    <tr *ngFor="let r of mapNum" class="ion-justify-content-center ion-align-items-end">
+      <td *ngFor="let c of mapNum">
+        <ion-img [src]="mapSrc[(r*16)+c]">
+        </ion-img>
+      </td>
+    </tr>
+  </table>
 
+  <div class="ion-padding text-center">
+    アイテムの近くで信号を受け取るとアイテムゲット！
+  </div>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="0" (click)="onBle()" expand="block" [fill]="signalFill" color="gray">信号受信<ion-icon name="cellular-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button fill="outline" color="secondary" expand="full">{{signalMessage}}</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="1" (click)="presentModal1()" color="main" expand="block">ヒント1</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="2" (click)="presentModal2()" color="green" expand="block">ヒント2</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="3" (click)="presentModal3()" color="blue" expand="block">ヒント3</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button fill="outline" color="gray" expand="full">見つけていないアイテム</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-img src="../../assets/game/1.png"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img src="../../assets/game/2.png"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img src="../../assets/game/3.png"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--
+  <img [src]="image0" *ngIf="image0">
+  <img [src]="image1" *ngIf="image1">
+  <img [src]="image2" *ngIf="image2">
+  <img [src]="image3" *ngIf="image3">
+  -->
 </ion-content>

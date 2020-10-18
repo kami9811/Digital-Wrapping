@@ -68,8 +68,14 @@ export class Tab2Page implements OnInit{
           text: 'OK',
           handler: (alertData) => {
             console.log(alertData.name);
-            this.newmaps = Number(this.maps) + 1;
-            this.router.navigate(['/edit', 0, alertData.name, this.newmaps]);
+            // ここでnative storageをみないとバグる
+            this.nativeStorage.getItem('login').then(
+              data => {
+                this.maps = data['maps'];
+                this.newmaps = Number(this.maps) + 1;
+                this.router.navigate(['/edit', 0, alertData.name, this.newmaps]);
+              }
+            );
           }
         }
       ]

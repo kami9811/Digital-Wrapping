@@ -1,9 +1,13 @@
 <ion-header>
   <ion-toolbar color="main">
-    <ion-title>image-modal</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button id="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>ここに隠れているぞ！</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-img [src]="image"></ion-img>
+  <ion-button expand="full" color="main" (click)="dismiss()">戻る</ion-button>
 </ion-content>

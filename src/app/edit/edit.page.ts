@@ -24,7 +24,7 @@ export class EditPage implements OnInit {
   url: string = 'https://kn46itblog.com/hackathon/autumnvol3/php_apis/';
   postObj: any = {};
 
-  // マップよう変数
+  // マップ変数
   mapNum: number[] = [...new Array(16).keys()];  // HTML*ngFor（描画）用リスト
   mapAtt: number[] = new Array(256);  // 描画内容メモ
   mapSrc: string[] = new Array(256);  // 描画ソースリスト
