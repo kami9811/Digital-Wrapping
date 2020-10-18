@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="main">
+  <ion-toolbar>
     <ion-grid>
       <ion-row class="ion-justify-content-center ion-align-items-end">
         <ion-col size="5"></ion-col>
@@ -13,5 +13,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card *ngFor="let a of returnObj['map_list']" button="true">
+    <ion-card-header routerLink="/edit/1/{{a.map_name}}/{{a.map_number}}">
+      <ion-card-subtitle>編集: {{a.map_name}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 
+  <!--
+  <div>
+    {{returnObj}}
+  </div>
+  -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="main" (click)="editNew()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

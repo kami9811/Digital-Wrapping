@@ -1,9 +1,92 @@
 <ion-header>
   <ion-toolbar color="main">
-    <ion-title>edit</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button id="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{map_name}}
+    </ion-title>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-align-items-end">
+        <ion-col size="3"></ion-col>
+        <ion-col size="6"></ion-col>
+        <ion-col size="3">
+          <ion-button color="gray" (click)="onSave()">{{saveMessage}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <table>
+    <tr *ngFor="let r of mapNum" class="ion-justify-content-center ion-align-items-end">
+      <td *ngFor="let c of mapNum">
+        <ion-img [src]="mapSrc[(r*16)+c]" [id]="'id:'+r+':'+c" (click)=onClick($event)>
+        </ion-img>
+      </td>
+    </tr>
+  </table>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="0" (click)="onButton($event)" expand="block" [fill]="delFill" color="gray">消しゴム</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="m1" (click)="onButton($event)" [fill]="wallFill" color="gray" expand="block">壁</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="m2" (click)="onButton($event)" [fill]="floorFill" color="gray" expand="block">床</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="m3" (click)="onButton($event)" [fill]="standFill" color="gray" expand="block">台</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="m4" (click)="onButton($event)" [fill]="chairFill" color="gray" expand="block">椅子</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="m10" (click)="onButton($event)" [fill]="beaFill[0]" color="main" expand="block">アイテム1</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="m20" (click)="onButton($event)" [fill]="beaFill[1]" color="green" expand="block">アイテム2</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="m30" (click)="onButton($event)" [fill]="beaFill[2]" color="blue" expand="block">アイテム3</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="1" (click)="onPhoto($event)" color="main" expand="block">ヒント写真1</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="2" (click)="onPhoto($event)" color="green" expand="block">ヒント写真2</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="3" (click)="onPhoto($event)" color="blue" expand="block">ヒント写真3</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-end">
+      <ion-col>
+        <ion-button id="00" (click)="onPhoto($event)" expand="block" color="gray">プレゼント隠し場所の写真</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="ion-padding ion-justify-content-center">
+    <p>
+      [Tips]<br>
+      アイテムを置く場所に手紙なども<br>
+      一緒に置いてみるといいですよ！<br>
+    </p>
+  </div>
+
+  <!--
+  <img [src]="image1" *ngIf="image1">
+  -->
 
 </ion-content>

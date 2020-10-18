@@ -32,11 +32,18 @@ const routes: Routes = [
     path: 'image-modal',
     loadChildren: () => import('./image-modal/image-modal.module').then( m => m.ImageModalPageModule)
   },
-  // :status / new or renew
+  // :status / 0(new) or 1(renew)
   // :name / map name
+  // :number / map number
   {
-    path: 'edit/:status/:name',
+    path: 'edit/:status/:name/:number',
     loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+  },
+  // :name / map name
+  // :number / map number
+  {
+    path: 'game/:name/:number',
+    loadChildren: () => import('./game/game.module').then( m => m.GamePageModule)
   }
 ];
 @NgModule({
