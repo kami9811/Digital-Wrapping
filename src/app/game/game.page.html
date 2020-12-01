@@ -55,13 +55,13 @@
     </ion-row>
     <ion-row class="ion-justify-content-center ion-align-items-end">
       <ion-col>
-        <ion-img src="../../assets/game/1.png"></ion-img>
+        <ion-img *ngIf="!itemFlag1" src="../../assets/game/1white.png"></ion-img>
       </ion-col>
       <ion-col>
-        <ion-img src="../../assets/game/2.png"></ion-img>
+        <ion-img *ngIf="!itemFlag2" src="../../assets/game/2white.png"></ion-img>
       </ion-col>
       <ion-col>
-        <ion-img src="../../assets/game/3.png"></ion-img>
+        <ion-img *ngIf="!itemFlag3" src="../../assets/game/3white.png"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>

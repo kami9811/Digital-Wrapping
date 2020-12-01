@@ -44,6 +44,7 @@ export class GamePage implements OnInit {
   itemFlag1: Boolean = false;
   itemFlag2: Boolean = false;
   itemFlag3: Boolean = false;
+  giftFlag: Boolean = false;
 
   constructor(
     private router: Router,
@@ -126,53 +127,61 @@ export class GamePage implements OnInit {
       device => {
         // 1号機
         if(device['id'] == "180A0B3E-FC28-C7F3-EFC5-60A4E95125A8" && this.itemFlag1 != true){
-          if(Number(device['rssi']) > -50){
+          if(Number(device['rssi']) > -40){
             for(let i = 0; i < 256; i++){
               if(this.mapAtt[i] == 1){
                 this.mapSrc[i] = '../../assets/game/_1.png';
                 this.signalMessage = '発見!';
                 this.itemFlag1 = true;
+                this.alertItem1();
               }
             }
           }
-          else if(Number(device['rssi']) > -80){
+          else if(Number(device['rssi']) > -100){
             this.signalMessage = "お宝の匂いがするぞ！";
           }
         }
         // 2号機
         else if(device['id'] == "C5CD47FD-3C74-35BB-551B-C8995C88BC0A" && this.itemFlag2 != true){
-          if(Number(device['rssi']) > -50){
+          if(Number(device['rssi']) > -40){
             for(let i = 0; i < 256; i++){
               if(this.mapAtt[i] == 2){
                 this.mapSrc[i] = '../../assets/game/_2.png';
                 this.signalMessage = '発見!';
                 this.itemFlag2 = true;
+                this.alertItem2();
               }
             }
           }
-          else if(Number(device['rssi']) > -80){
+          else if(Number(device['rssi']) > -100){
             this.signalMessage = "お宝の匂いがするぞ！";
           }
         }
         // 3号機
         else if(device['id'] == "3866D0DC-04FC-3DD1-FB3B-F600E88ABC57" && this.itemFlag3 != true){
-          if(Number(device['rssi']) > -50){
+          if(Number(device['rssi']) > -40){
             for(let i = 0; i < 256; i++){
               if(this.mapAtt[i] == 3){
                 this.mapSrc[i] = '../../assets/game/_3.png';
                 this.signalMessage = '発見!';
                 this.itemFlag3 = true;
+                this.alertItem3();
               }
             }
           }
-          else if(Number(device['rssi']) > -80){
+          else if(Number(device['rssi']) > -100){
             this.signalMessage = "お宝の匂いがするぞ！";
           }
         }
-        this.signalMessage = "見つからねぇな...";
+        // スルー
+        else{
+          this.signalMessage = "信号探索停止中";
+        }
         if(this.itemFlag1 == true && this.itemFlag2 == true && this.itemFlag3 == true){
-          this.alertClear();
-          this.presentModal0();
+          if(this.giftFlag != true){
+            this.presentModal0();
+            this.giftFlag = true;
+          }
         }
       }
     );
@@ -183,6 +192,7 @@ export class GamePage implements OnInit {
       component: ImageModalPage,
       componentProps: {
         'image': this.image0,
+        'num': '0'
       }
     });
     return await modal.present();
@@ -192,6 +202,7 @@ export class GamePage implements OnInit {
       component: ImageModalPage,
       componentProps: {
         'image': this.image1,
+        'num': '1'
       }
     });
     return await modal.present();
@@ -201,6 +212,7 @@ export class GamePage implements OnInit {
       component: ImageModalPage,
       componentProps: {
         'image': this.image2,
+        'num': '2'
       }
     });
     return await modal.present();
@@ -210,28 +222,33 @@ export class GamePage implements OnInit {
       component: ImageModalPage,
       componentProps: {
         'image': this.image3,
+        'num': 3
       }
     });
     return await modal.present();
   }
-
-  async alertClear() {
+  async alertItem1() {
     const alert = await this.alertController.create({
-      message: 'アイテムを全て見つけました！\nこちらの場所に行ってみましょう...',
+      message: '赤のアイテムを見つけました！',
       buttons: ['OK']
     });
 
     await alert.present();
   }
-  /*
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: ImageModalPage,
-      componentProps: {
-        'image': this.image0,
-      }
+  async alertItem2() {
+    const alert = await this.alertController.create({
+      message: '緑のアイテムを見つけました！',
+      buttons: ['OK']
     });
-    return await modal.present();
+
+    await alert.present();
   }
-  */
+  async alertItem3() {
+    const alert = await this.alertController.create({
+      message: '青のアイテムを見つけました！',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }

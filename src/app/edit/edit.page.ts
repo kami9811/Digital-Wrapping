@@ -314,12 +314,15 @@ export class EditPage implements OnInit {
           this.nativeStorage.setItem('login', {
             id: this.id,
             hash: this.hash,
-            maps: this.newmaps
-          });
+            maps: Number(this.newmaps)
+          }).then(
+            () => {
+              this.saveMessage = '保存';
+              this.alertSave();
+              this.router.navigate(['/tabs/tab2']);
+            }
+          );
         }
-        this.saveMessage = '保存';
-        this.alertSave();
-        this.router.navigate(['/tabs/tab2']);
       }
     );
   }

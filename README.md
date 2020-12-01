@@ -8,9 +8,13 @@
 npm install cordova-plugin-nativestorage \
 npm install @ionic-native/native-storage \
 npm install cordova-plugin-camera \
-npm install @ionic-native/camera
+npm install @ionic-native/camera \
+npm install cordova-plugin-ble-central \
+npm install @ionic-native/ble
 
-## edit-config -> config.xml
+## permission -> info.plist
+<key>NSBluetoothAlwaysUsageDescription</key> \
+<string>室内位置情報測位のために利用します.</string>
 
 ## Build
 ### 1st time
